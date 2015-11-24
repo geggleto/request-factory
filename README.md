@@ -3,6 +3,7 @@ Turn raw HTTP Strings into PSR-7 Requests
 
 # Usage
 
+```php
 // ...
 use \Geggleto\Foundation\Factory\ServerRequestFactory;
 
@@ -16,3 +17,4 @@ Accept-Encoding: gzip, deflate
 User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
 
 // $request is PSR-7!
+```
