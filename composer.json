@@ -1,0 +1,21 @@
+{
+  "name": "geggleto/foundation",
+  "description": "description_text",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Glenn Eggleton",
+      "email": "geggleto@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Geggleto\\Foundation\\Factory\\": "src"
+    }
+  },
+  "require": {
+    "zendframework/zend-diactoros": "1.2.0",
+    "phpunit/phpunit": "5.0.9"
+  }
+}
