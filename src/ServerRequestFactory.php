@@ -35,9 +35,18 @@ class ServerRequestFactory extends \Zend\Diactoros\ServerRequestFactory
         $body = $message['body'];
         unset($message['body']);
 
+        //We need to construct the URL
+        $url = "http://" . $message['Host'] . $uri[1];
 
-        $sr = new ServerRequest([], [], $message["Host"].$uri[1], $uri[0], new Stream('php://memory', "wb+"), $message);
+
+        $sr = new ServerRequest([], [],$url, $uri[0], new Stream('php://memory', "wb+"), $message);
         $sr->getBody()->write($body);
+        $sr->getBody()->rewind();
+
+        $parsedBody = array();
+        parse_str($body, $parsedBody);
+        $sr = $sr->withParsedBody($parsedBody);
+
         return $sr;
     }
 
